@@ -16,7 +16,9 @@ extern "C" {
 // {
 //     delete ptr;
 // }
-// int main(int argc, char const *argv[]) {}
+int main(int argc, char const *argv[]) {
+    test();
+}
 
 void test()
 {
