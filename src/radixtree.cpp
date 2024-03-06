@@ -1,19 +1,24 @@
+/**
+* The thing you want to compile to get the .so file
+*/
 #include "radixtree.h"
 #include <iostream>
+#include <new>
 
-class long_wrapper {
+extern "C" {
 
-public:
-    int *bruh;
-    long_wrapper(int hello){
-        bruh = new int(hello);
-    }
-    ~long_wrapper() {
-        delete bruh;
-    }
-};
+// void *CreateRadixTree(void)
+// {
+//     return new(std::nothrow) llm_sys::radix_tree<std::string>();
+// }
+//
+// void DeleteRadixTree(void *ptr)
+// {
+//     delete ptr;
+// }
+// int main(int argc, char const *argv[]) {}
 
-int main(int argc, char const *argv[])
+void test()
 {
     llm_sys::radix_tree<std::string> bruh{};
     bruh.put("help", new std::string("me"));
@@ -36,5 +41,5 @@ int main(int argc, char const *argv[])
     std::cout << "String @ \"helping\" stored should be the same as help, \"me\": " << result2.first + ", " + result2.second << '\n';
     result2 = bruh.get_best_match("helping ");
     std::cout << "String @ \"helping \" stored should be the same as help, \"me\": " << result2.first + ", " + result2.second << '\n';
-    return 0;
+}
 }
